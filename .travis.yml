@@ -7,6 +7,11 @@ python:
   - '3.7'
   - '3.6'
 
+branches:
+  only:
+    -main
+    -master
+    -make_unittest
 
 # Command to install dependencies, e.g. pip install -r requirements.txt --use-mirrors
 install:
