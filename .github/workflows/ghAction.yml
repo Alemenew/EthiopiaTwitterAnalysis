@@ -1,0 +1,12 @@
+name: ghAction
+on:[push]
+jobs:
+  check-bats-version:
+    runs-on:ubuntu-latest
+    steps:
+      -user: actions/chekout@v2
+      -user:actions/setup-node@v2
+      whith:
+        node-version:'14'
+        -run: npm install -g bats
+        -run: bats -v
