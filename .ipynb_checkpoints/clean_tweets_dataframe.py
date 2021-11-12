@@ -1,7 +1,7 @@
 import pandas as pd
 df =pd.read_json(r"/Users/alex/Desktop/10_acadamy/Twitter-Data-Analysis/data/covid19.json" , lines= True)
 df.to_csv(r'/Users/alex/Desktop/10_acadamy/Twitter-Data-Analysis/data/covid19.csv', index = None)
-df = pd.read_csv("/Users/alex/Desktop/10_acadamy/Twitter-Data-Analysis/data/covid19.csv")
+
 class CleanTweets:
     """
     This class is responsible for cleaning the twitter dataframe
@@ -47,12 +47,9 @@ class CleanTweets:
         convert columns like polarity, subjectivity, retweet_count
         favorite_count etc to numbers
         """
-
-        self.df['quote_count'] = pd.to_numeric(self.df["quote_count"], errors='coerce')
+        self.df['polarity'] = pd.to_numeric(self.df['polarity'], errors='coerce')
         self.df['retweet_count'] = pd.to_numeric(self.df['retweet_count'], errors='coerce')
         self.df['favorite_count'] = pd.to_numeric(self.df['favorite_count'], errors='coerce')
-        self.df["reply_count"] = pd.to_numeric(self.df["reply_count"],error='coerce')
-
 
         return self.df
 
